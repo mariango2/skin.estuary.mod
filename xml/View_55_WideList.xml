@@ -47,16 +47,6 @@
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
-						<control type="label">
-							<left>105</left>
-							<top>0</top>
-							<bottom>0</bottom>
-							<right>40</right>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListLabel2Var]</label>
-							<shadowcolor>text_shadow</shadowcolor>
-						</control>
 					</focusedlayout>
 					<itemlayout height="list_item_height" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">
 						<control type="image">
@@ -73,16 +63,6 @@
 							<right>40</right>
 							<aligny>center</aligny>
 							<label>$VAR[ListLabelVar]</label>
-							<shadowcolor>text_shadow</shadowcolor>
-						</control>
-						<control type="label">
-							<left>105</left>
-							<top>0</top>
-							<bottom>0</bottom>
-							<right>40</right>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$VAR[ListLabel2Var]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
