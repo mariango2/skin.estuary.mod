@@ -162,15 +162,6 @@
 				<texture>overlays/overlayfade.png</texture>
 				<visible>!ListItem.IsParentFolder</visible>
 			</control>
-			<control type="label">
-				<left>31</left>
-				<top>178</top>
-				<width>260</width>
-				<label>$PARAM[thumb_label]</label>
-				<font>font20_title</font>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>right</align>
-			</control>
 			<control type="image">
 				<left>20</left>
 				<top>175</top>
@@ -405,7 +396,6 @@
 						<top>110</top>
 						<include content="InfoWallEpisodeLayout">
 							<param name="focused" value="false" />
-							<param name="thumb_label" value="$INFO[ListItem.Label2]" />
 						</include>
 					</control>
 				</itemlayout>
@@ -418,7 +408,6 @@
 						<top>110</top>
 						<include content="InfoWallEpisodeLayout">
 							<param name="focused" value="true" />
-							<param name="thumb_label" value="$INFO[ListItem.Label2]" />
 						</include>
 					</control>
 				</focusedlayout>
