@@ -679,6 +679,10 @@ msgctxt "#31176"
 msgid "Default select action for movie sets on the home screen"
 msgstr "홈 화면의 영화 세트에 대한 기본 작업 선택"
 
+msgctxt "#31177"
+msgid "Hide titles of unwatched episodes"
+msgstr ""
+
 # empty strings from id 31170 to 31599
 #. Label to show the video codec name
 msgctxt "#31600"

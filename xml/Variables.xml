@@ -80,9 +80,12 @@
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="ListLabelVar">
+		<value condition="String.IsEqual(ListItem.DbType,episode) + Window.IsActive(videoplaylist) + Skin.HasSetting(hide_unwatchedepisodetitles) + Integer.IsEqual(ListItem.PlayCount, 0)">$INFO[ListItem.TVShowtitle,,: ]$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
 		<value condition="String.IsEqual(ListItem.DbType,episode) + Window.IsActive(videoplaylist)">$INFO[ListItem.TVShowtitle,,: ]$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
 		<value condition="String.IsEqual(ListItem.DbType,musicvideo) + Window.IsActive(videoplaylist)">$INFO[ListItem.Artist,, - ]$INFO[ListItem.Title]</value>
+		<value condition="[!String.IsEmpty(ListItem.Season) | !String.IsEmpty(ListItem.Episode) | !String.IsEmpty(ListItem.EpisodeName)] + Window.IsActive(videoplaylist) + Skin.HasSetting(hide_unwatchedepisodetitles) + Integer.IsEqual(ListItem.PlayCount, 0)">$INFO[ListItem.Title,,: ]$VAR[SeasonEpisodeLabel]Episode $INFO[ListItem.Episode]</value>
 		<value condition="[!String.IsEmpty(ListItem.Season) | !String.IsEmpty(ListItem.Episode) | !String.IsEmpty(ListItem.EpisodeName)] + Window.IsActive(videoplaylist)">$INFO[ListItem.Title,,: ]$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName]</value>
+		<value condition="String.IsEqual(ListItem.DbType,episode) + Skin.HasSetting(hide_unwatchedepisodetitles) + Integer.IsEqual(ListItem.PlayCount, 0)">$VAR[EpisodeLabel]Episode $INFO[ListItem.Episode]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="ListLabel2Var">
@@ -371,6 +374,7 @@
 		<value>$LOCALIZE[208]</value>
 	</variable>
 	<variable name="VideoInfoSubLabelVar">
+		<value condition="String.IsEqual(ListItem.DBType,episode) + Skin.HasSetting(hide_unwatchedepisodetitles) + Integer.IsEqual(ListItem.PlayCount, 0)">$INFO[ListItem.Season]$INFO[ListItem.Episode,[COLOR grey]x[/COLOR],: ]Episode $INFO[ListItem.Episode]</value>
 		<value condition="String.IsEqual(ListItem.DBType,episode)">$INFO[ListItem.Season]$INFO[ListItem.Episode,[COLOR grey]x[/COLOR],: ]$INFO[ListItem.Title]</value>
 		<value condition="String.IsEqual(ListItem.DBType,movie)">$INFO[ListItem.Tagline,[I],[/I]]</value>
 		<value>$INFO[ListItem.Genre]</value>
@@ -584,6 +588,10 @@
 	<variable name="SeasonEpisodeLabel">
 		<value condition="String.IsEmpty(ListItem.EpisodeName)">$INFO[ListItem.Season,S]$INFO[ListItem.Episode,E]</value>
 		<value>$INFO[ListItem.Season,S]$INFO[ListItem.Episode,E,: ]</value>
+	</variable>
+	<variable name="EpisodeLabel">
+		<value condition="Integer.IsLess(ListItem.Episode,10)">$INFO[ListItem.Episode,0,. ]</value>
+		<value>$INFO[ListItem.Episode,,. ]</value>
 	</variable>
 	<variable name="FirstAiredLabel">
 		<value condition="String.IsEqual(ListItem.DBType,movie)">$LOCALIZE[20473]</value>
