@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.estuary.mod" version="1.0.0" name="Estuary Mod" provider-name="mariango2">
+<addon id="skin.estuary.mod" version="1.1.0" name="Estuary Mod" provider-name="mariango2">
 	<requires>
 		<import addon="xbmc.gui" version="5.16.0"/>
 	</requires>
