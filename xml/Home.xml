@@ -80,6 +80,7 @@
 							<param name="content_path" value="special://skin/playlists/random_movies.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31006]"/>
 							<param name="widget_target" value="videos"/>
+							<param name="browse_mode" value="never"/>
 							<param name="list_id" value="5400"/>
 						</include>
 						<include content="WidgetListCategories" condition="Library.HasContent(movies)">
@@ -208,6 +209,7 @@
 							<param name="content_path" value="special://skin/playlists/random_albums.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31012]"/>
 							<param name="widget_target" value="music"/>
+							<param name="browse_mode" value="never"/>
 							<param name="list_id" value="7300"/>
 							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
 							<param name="onclick_condition" value="true"/>
@@ -217,6 +219,7 @@
 							<param name="content_path" value="special://skin/playlists/random_artists.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31013]"/>
 							<param name="widget_target" value="music"/>
+							<param name="browse_mode" value="never"/>
 							<param name="list_id" value="7400"/>
 							<param name="fallback_icon" value="DefaultMusicArtists.png"/>
 						</include>
@@ -359,7 +362,7 @@
 							<param name="widget_header" value="$LOCALIZE[136]"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="11200"/>
-							<param name="icon" value="DefaultPlaylist.png"/>
+							<param name="icon" value="$VAR[WidgetPlaylistIconVar]"/>
 						</include>
 					</control>
 					<include content="ImageWidget">
@@ -392,6 +395,7 @@
 							<param name="sortby" value="lastplayed"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31016]"/>
+							<param name="widget_target" value="tvchannels"/>
 							<param name="item_limit" value="15"/>
 							<param name="list_id" value="12200"/>
 							<param name="info_update" value="5000"/>
@@ -401,6 +405,7 @@
 							<param name="sortby" value="date"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31015]"/>
+							<param name="widget_target" value="tvrecordings"/>
 							<param name="item_limit" value="15"/>
 							<param name="list_id" value="12300"/>
 							<param name="label" value="$INFO[ListItem.Title]$INFO[ListItem.Date, (,)]"/>
@@ -462,6 +467,7 @@
 							<param name="sortby" value="lastplayed"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31018]"/>
+							<param name="widget_target" value="radiochannels"/>
 							<param name="item_limit" value="15"/>
 							<param name="list_id" value="13200"/>
 							<param name="info_update" value="5000"/>
@@ -471,6 +477,7 @@
 							<param name="sortby" value="date"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31015]"/>
+							<param name="widget_target" value="radiorecordings"/>
 							<param name="item_limit" value="15"/>
 							<param name="list_id" value="13300"/>
 							<param name="label" value="$INFO[ListItem.Title]$INFO[ListItem.Date, (,)]"/>
@@ -729,6 +736,7 @@
 							<param name="content_path" value="special://skin/playlists/random_musicvideo_artists.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31013]"/>
 							<param name="widget_target" value="music"/>
+							<param name="browse_mode" value="never"/>
 							<param name="list_id" value="16200"/>
 							<param name="widget_limit" value="10"/>
 						</include>
@@ -746,6 +754,7 @@
 							<param name="content_path" value="special://skin/playlists/random_musicvideos.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31152]"/>
 							<param name="widget_target" value="videos"/>
+							<param name="browse_mode" value="never"/>
 							<param name="fallback_image" value="DefaultMusicSongs.png" />
 							<param name="list_id" value="16500"/>
 						</include>
@@ -1065,7 +1074,14 @@
 						<param name="onclick" value="Fullscreen" />
 						<param name="icon" value="icons/now-playing/fullscreen.png" />
 						<param name="label" value="$LOCALIZE[31000]" />
-						<param name="visible" value="Player.HasMedia" />
+						<param name="visible" value="Player.HasMedia + !Player.IsRemote" />
+					</include>
+					<include content="IconButton">
+						<param name="control_id" value="805" />
+						<param name="onclick" value="ActivateWindow(playercontrols)" />
+						<param name="icon" value="icons/now-playing/fullscreen.png" />
+						<param name="label" value="$LOCALIZE[31000]" />
+						<param name="visible" value="Player.HasMedia + Player.IsRemote + !Player.HasAudio" />
 					</include>
 				</control>
 			</control>
